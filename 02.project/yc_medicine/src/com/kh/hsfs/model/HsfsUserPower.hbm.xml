@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.kh.hsfs.model.HsfsUserPower" table="hsfs_user_power" >
+        <comment>权限表</comment>
+        <id name="powerId" type="int">
+            <column name="POWER_ID" precision="22" scale="0" />
+        </id>
+        <property name="powerName" type="java.lang.String">
+            <column name="POWER_NAME" length="32">
+                <comment>权限名</comment>
+            </column>
+        </property>
+        <property name="powerUrl" type="java.lang.String">
+            <column name="POWER_URL">
+                <comment>链接地址</comment>
+            </column>
+        </property>
+        <property name="fatherId"  column="father_id" type="integer"/>
+        
+        <property name="orderId" column="ORDER_ID" type="string"></property>
+        
+    </class>
+</hibernate-mapping>

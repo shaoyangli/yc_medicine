@@ -1,0 +1,53 @@
+@charset "utf-8";
+/*通用设置*/
+
+
+/*菜单个性设置*/
+.box{margin:0 auto; height:90%;}
+.box ul{list-style:none; text-align:left;  padding:0; margin:0;  }
+.box h2{width:147px;margin:0 auto;height:33px;background:#FFF url(../images/menuhead.gif) no-repeat left top;text-indent:-9999px;}
+.menu{width:97.5%; margin:0 auto;}
+.menu li{ margin:0; padding:0; float:left; width:100%;   }
+/*一级菜单*/
+
+.menu li.level1 a{display:block; margin:0; line-height:28px;height:28px; padding-left:20px; font-size:12px;color:#324269;background:url(../images/tdbg.jpg) left top repeat-x; text-decoration:none;}
+.menu li.level1 img{ margin:12px auto; vertical-align:middle; border:0; margin-right:6px;}
+
+/*一级菜单两态样式,供JS调用*/
+
+
+
+
+/*二级菜单*/
+.menu li ul{ margin:0; padding:0; }
+.menu li ul.level2{ width:195px;display:none;  margin:0 auto; margin-top:6px;  }
+.menu li ul.level2 li{height:26px;line-height:26px;padding:0; width:195px;  border-bottom:1px solid #c2c2c2;  text-align:left;  }
+.menu li ul.level2 li a{ display:block;height:26px; text-decoration:none; line-height:26px; background:#f2f2f2 ; color:#666; text-align:left;  }
+
+
+
+/*二级菜单两态样式,供JS调用*/
+
+.menu li ul.level2 li a:link{  border:0; color:#666; text-decoration:none;}
+.menu li ul.level2 li a:visited{ font-size: 12px; color:red; text-decoration:none;}
+.menu li ul.level2 li a:hover { font-size:12px; color:#324269; }
+.menu li ul.level2 li a:active { font-size:12px; color:#666; }
+
+
+/*.menu li ul.level2 li a.hove1{ background:#eef3f8 url(../images/erbg.jpg) no-repeat left center; border:0; color:#324269;}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

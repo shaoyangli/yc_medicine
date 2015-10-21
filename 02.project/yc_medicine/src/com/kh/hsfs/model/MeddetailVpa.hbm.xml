@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.kh.hsfs.model.MeddetailVpa" table="meddetail_vpa">
+        <comment>csa给药明细</comment>
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="increment"/>
+        </id>
+        <property name="hid" type="int">
+            <column name="hid" not-null="true">
+                <comment>住院信息id</comment>
+            </column>
+        </property>
+        <property name="mid" type="int">
+            <column name="mid" not-null="true">
+                <comment>给药信息id</comment>
+            </column>
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="sex" length="1">
+                <comment>性别</comment>
+            </column>
+        </property>
+        <property name="form" type="java.lang.String">
+            <column name="form" length="1">
+                <comment>药物剂型，1=溶液剂，2=片剂，3=缓释剂；</comment>
+            </column>
+        </property>
+        <property name="age" type="java.lang.String">
+            <column name="age" length="3">
+                <comment>年龄</comment>
+            </column>
+        </property>
+        <property name="wt" type="java.lang.String">
+            <column name="wt" length="10">
+                <comment>患者的体重，这个数值不是固定，因这些患者长期用药，体重可能会有变化</comment>
+            </column>
+        </property>
+        <property name="bsa" type="java.lang.String">
+            <column name="bsa" length="10">
+                <comment>患者表面积</comment>
+            </column>
+        </property>
+
+        <property name="amt" type="java.lang.String">
+            <column name="amt" length="10">
+                <comment>给药剂量,若这一行有血药浓度数据，AMT格为空白</comment>
+            </column>
+        </property>
+        <property name="date" type="java.lang.String">
+            <column name="date" length="10">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="time" type="java.lang.String">
+            <column name="time" length="5">
+                <comment>时间，格式24小时制，这个也包括了给药时间及采血时间；</comment>
+            </column>
+        </property>
+
+        <property name="dv" type="java.lang.String">
+            <column name="dv" length="10">
+                <comment>检测的药物浓度，有检测浓度输入相应检测浓度，无浓度空白</comment>
+            </column>
+        </property>
+        <property name="mdv" type="java.lang.String">
+            <column name="mdv" length="10">
+                <comment></comment>
+            </column>
+        </property>
+
+        <property name="tamt" type="java.lang.String">
+            <column name="tamt" length="10">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="lmsq" type="java.lang.String">
+            <column name="lmsq" length="1">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="lxxp" type="java.lang.String">
+            <column name="lxxp" length="1">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="kmxp" type="java.lang.String">
+            <column name="kmxp" length="1">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="tt" type="java.lang.String">
+            <column name="tt" length="1">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="bbbt" type="java.lang.String">
+            <column name="bbbt" length="10">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="kpl" type="java.lang.String">
+            <column name="kpl" length="10">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="okxp" type="java.lang.String">
+            <column name="okxp" length="10">
+                <comment></comment>
+            </column>
+        </property>
+        <property name="pht" type="java.lang.String">
+            <column name="pht" length="10">
+                <comment></comment>
+            </column>
+        </property>
+
+
+    </class>
+</hibernate-mapping>

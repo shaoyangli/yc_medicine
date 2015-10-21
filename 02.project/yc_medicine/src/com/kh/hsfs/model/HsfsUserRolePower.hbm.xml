@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.kh.hsfs.model.HsfsUserRolePower" table="hsfs_user_role_power">
+        <comment>权限角色关系表</comment>
+        <id name="id" type="int">
+            <column name="ID" precision="22" scale="0" />
+        </id>
+        <property name="roleId" type="int">
+            <column name="ROLE_ID" precision="22" scale="0" not-null="true">
+                <comment>关联角色表的外键</comment>
+            </column>
+        </property>
+        <property name="powerId" type="string">
+            <column name="POWER_ID">
+                <comment>关联权限表的外键</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

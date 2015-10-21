@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name ="org" extends="json-default" >
+		<interceptors>
+			<interceptor name="LoginInterceptor" class="LoginInterceptor"/>
+			<interceptor-stack name="myDefaultStack">
+				<interceptor-ref name="LoginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>
+		<global-results>
+			<result name="nouser">/hsfs/exitLog.jsp</result>
+		</global-results>
+		<action name="org_*" class="orgManageAction" method="{1}">
+			<result name="getDic" type="json"></result>
+			<result name="findSorts" type="json"></result>
+			<result name="selectOrg2" type="json"></result>
+			<result name="selectOrg3" type="json"></result>
+			<result name="save" type="json"></result>
+			<result name="orginit">/hsfs/org/orglist.jsp</result>
+			<result name="findOrg" type="json"></result>
+			<result name="removeOrg" type="json"></result>
+			<result name="findOneOrg">/hsfs/org/orgUpdate.jsp</result>
+			<result name="updateOrg" type="json"></result>
+			<result name="findUpOrg" type="json"></result>
+		</action>
+		<action name="orgUser" class="userManagerAction">
+			<result name="findOrgs" type="json"></result>
+			<result name="saveUser" type="json"/>
+			<result name="checkLoginId" type="json"/>
+			<result name="saveUserRole" type="json"/>
+			<result name="findAllUserRole" type="json"/>
+			<result name="saveUserPower" type="json"/>
+			<result name="findAllUserPower" type="json"/>
+			<result name="findAllFatherMenu" type="json"></result>
+			<result name="findAllMenu" type="json"></result>
+			<result name="saveRolePower" type="json"/>
+			<result name="findPowers" type="json"></result>
+			<result name="result" type="json"></result>
+			<result name="findOnePower">/hsfs/user/powerUpdate.jsp</result>
+			<result name="findUser">/hsfs/user/userUpdate.jsp</result>
+		</action>
+		<action name="user" class="loginAction">
+			<result name="loginSuccess" type="json"></result>
+			<result name="error">/hsfs/userLogin.jsp</result>
+			<result name="left2">/hsfs/left3.jsp</result>
+			<result name="userExit" type="redirect">/hsfs/exitLog.jsp</result>
+		</action>
+	</package>
+	
+</struts>

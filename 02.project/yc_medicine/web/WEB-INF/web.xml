@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>WEB-INF/spring*.xml</param-value>
+	</context-param>
+	<!-- 经费监管系统公用初始化地区配置 411521-->
+	<context-param>
+		<param-name>Address</param-name>
+		<param-value>411521</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			org.springframework.web.util.IntrospectorCleanupListener
+		</listener-class>
+	</listener>
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			com.kh.util.MutilCharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>gbk</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<!-- 开始 
+		<filter>  
+		<filter-name>CharacterEncoding</filter-name>  
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+		<init-param>  
+		<param-name>encoding</param-name>  
+		<param-value>GBK</param-value>  
+		</init-param>  
+		<init-param>  
+		<param-name>forceEncoding</param-name>  
+		<param-value>true</param-value>  
+		</init-param>  
+		</filter>
+		结束 -->
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!--<listener>
+		<listener-class>com.kh.util.GetDateSource</listener-class>
+	</listener>-->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+<filter>
+ 	<filter-name>LoginFilter</filter-name>
+ 	<filter-class>com.kh.hsfs.filter.LoginFilter</filter-class>
+ 	
+</filter>
+ 
+ <filter-mapping>
+ 	<filter-name>LoginFilter</filter-name>
+ 	<url-pattern>/hsfs/org/*</url-pattern>
+ 	<url-pattern>/hsfs/capital/*</url-pattern>
+ 	<url-pattern>/hsfs/fund/*</url-pattern>
+ 	<url-pattern>/hsfs/report/*</url-pattern>
+ 	<url-pattern>/hsfs/serviceObj/*</url-pattern>
+ 	<url-pattern>/hsfs/test/*</url-pattern>	
+ 	<url-pattern>/hsfs/user/*</url-pattern>	
+ 	<url-pattern>/hsfs/manage.jsp</url-pattern>
+ 	<url-pattern>/hsfs/left3.jsp</url-pattern>
+ 	<url-pattern>/hsfs/top.jsp</url-pattern>
+ 	<url-pattern>/hsfs/list.jsp</url-pattern>
+ 	<url-pattern>/hsfs/email/*</url-pattern>
+ 	<url-pattern>/hsfs/notice/*</url-pattern>
+ </filter-mapping>
+
+	<session-config>
+		<session-timeout>1440</session-timeout>
+	</session-config>
+	<!-- <error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/hsfs/unLoginError.jsp</location>
+	</error-page> -->
+
+	
+	<welcome-file-list>
+		<welcome-file>hsfs/userLogin.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.kh.hsfs.model.HsfsOrgExtend" table="hsfs_org_extend">
+        <comment>医疗机构账号信息表</comment>
+        <id name="id" type="integer">
+            <column name="ID" />
+        </id>
+        <property name="orgCode" type="java.lang.String">
+            <column name="ORG_CODE" >
+                <comment>医疗机构编码</comment>
+            </column>
+        </property>
+        <property name="burYear" type="string">
+            <column name="BUR_YEAR" >
+                <comment>年度</comment>
+            </column>
+        </property>
+        <property name="accountNumber" type="string">
+            <column name="ACCOUNT_NUMBER">
+                <comment>帐号</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.kh.hsfs.model.MedicineCsa" table="medicine_csa">
+        <comment>csa给药信息</comment>
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="increment"/>
+        </id>
+        <property name="hid" type="int">
+            <column name="hid" not-null="true">
+                <comment>住院信息id</comment>
+            </column>
+        </property>
+        <property name="date" type="java.lang.String">
+            <column name="date" length="10">
+                <comment>给药日期或采血日期</comment>
+            </column>
+        </property>
+        <property name="time" type="java.lang.String">
+            <column name="time" length="5">
+                <comment>时间，格式24小时制，这个也包括了给药时间及采血时间；</comment>
+            </column>
+        </property>
+        <property name="time2" type="java.lang.String">
+            <column name="time2" length="5">
+                <comment>时间，格式24小时制，这个也包括了给药时间及采血时间；</comment>
+            </column>
+        </property>
+        <property name="cxrq" type="java.lang.String">
+            <column name="cxrq" length="10">
+                <comment>采血日期</comment>
+            </column>
+        </property>
+        <property name="cxsj" type="java.lang.String">
+            <column name="cxsj" length="5">
+                <comment>采血时间；</comment>
+            </column>
+        </property>
+        <property name="amt" type="java.lang.String">
+            <column name="amt" length="10">
+                <comment>给药剂量,若这一行有血药浓度数据，AMT格为空白</comment>
+            </column>
+        </property>
+        <property name="amt2" type="java.lang.String">
+            <column name="amt2" length="10">
+                <comment>给药剂量,若这一行有血药浓度数据，AMT格为空白</comment>
+            </column>
+        </property>
+        <property name="cmt" type="java.lang.String">
+            <column name="cmt" length="1">
+                <comment>静脉给药输入”2”，口服给药输入”1”，若这一行有血药浓度数据，CMT格为空白</comment>
+            </column>
+        </property>
+        <property name="rate" type="java.lang.String">
+            <column name="rate" length="1">
+                <comment>1:'QD',2:'Q12D',3:'24H滴注'</comment>
+            </column>
+        </property>
+        <property name="rate1" type="java.lang.String">
+            <column name="rate1" length="100">
+                <comment>静脉给药速率，因这部分患者一般是24h给药，故应录入的数据为AMT/24值（即给药剂量除以24h），其余空白</comment>
+            </column>
+        </property>
+        <property name="dv" type="java.lang.String">
+            <column name="dv" length="10">
+                <comment>检测的药物浓度，有检测浓度输入相应检测浓度，无浓度空白</comment>
+            </column>
+        </property>
+        <property name="htc" type="java.lang.String">
+            <column name="htc" length="10">
+                <comment>红细胞比积，这个数值不是固定，应患者会经常检测这个指标</comment>
+            </column>
+        </property>
+        <property name="atf" type="java.lang.String">
+            <column name="atf" length="1">
+                <comment>是否合用抗真菌药物（包括氟康唑、伊曲康唑、伏立康唑），若合用这些药物，输入“1”，未合用，输入“0”</comment>
+            </column>
+        </property>
+        <property name="dt" type="java.lang.String">
+            <column name="dt" length="1">
+                <comment>环孢素治疗时间，小于等于30天，输入“0”，大于30天，输入“1”</comment>
+            </column>
+        </property>
+        <property name="tg" type="java.lang.String">
+            <column name="tg" length="1">
+                <comment>甘油三脂水平，小于2.3mmol/L，输入“0”，大于等于2.3mmol/L，输入“1”；</comment>
+            </column>
+        </property>
+        <property name="rbc" type="java.lang.String">
+            <column name="rbc" length="10">
+                <comment>红细胞计数，这个数值不是固定，应患者会经常检测这个指标</comment>
+            </column>
+        </property>
+        <property name="tbil" type="java.lang.String">
+            <column name="tbil" length="10">
+                <comment>总胆红素积，这个数值不是固定，应患者会经常检测这个指标</comment>
+            </column>
+        </property>
+        <property name="alt" type="java.lang.String">
+            <column name="alt" length="10">
+                <comment>谷丙转氨酶，这个数值不是固定，应患者会经常检测这个指标</comment>
+            </column>
+        </property>
+        <property name="ast" type="java.lang.String">
+            <column name="ast" length="10">
+                <comment>谷草转氨酶，这个数值不是固定，应患者会经常检测这个指标</comment>
+            </column>
+        </property>
+
+        <property name="jg" type="java.lang.String">
+            <column name="jg" length="10">
+                <comment>剂量调整间隔</comment>
+            </column>
+        </property>
+        <property name="xysx" type="java.lang.String">
+            <column name="xysx" length="10">
+                <comment>预测血液浓度上限</comment>
+            </column>
+        </property>
+        <property name="xyxx" type="java.lang.String">
+            <column name="xyxx" length="10">
+                <comment>预测血液浓度下限</comment>
+            </column>
+        </property>
+        <property name="zxyl" type="java.lang.String">
+            <column name="zxyl" length="10">
+                <comment>最小用药量</comment>
+            </column>
+        </property>
+        <property name="zdyl" type="java.lang.String">
+            <column name="zdyl" length="10">
+                <comment>最大用药量</comment>
+            </column>
+        </property>
+        <property name="ycxy" type="java.lang.String">
+            <column name="ycxy" length="10">
+                <comment>预测血液浓度</comment>
+            </column>
+        </property>
+        <property name="jyyl" type="java.lang.String">
+            <column name="jyyl" length="10">
+                <comment>医生建议用药</comment>
+            </column>
+        </property>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.kh.hsfs.model.HsfsUserInfo" table="hsfs_user_info">
+        <comment>用户信息</comment>
+        <id name="userCode" type="int">
+            <column name="USER_CODE"/>
+            <generator class="increment" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="USER_NAME" length="30" not-null="true">
+                <comment>用户名称</comment>
+            </column>
+        </property>
+        <property name="orgCode" type="java.lang.String">
+            <column name="ORG_CODE" length="32">
+                <comment>所属机构</comment>
+            </column>
+        </property>
+        <property name="userLoginId" type="java.lang.String">
+            <column name="USER_LOGINID" length="32">
+                <comment>用户密码</comment>
+            </column>
+        </property>
+        <property name="userPwd" type="java.lang.String">
+            <column name="USER_PWD" length="32">
+                <comment>用户密码</comment>
+            </column>
+        </property>
+        <property name="powerRole" type="int">
+            <column name="POWER_ROLE" precision="22" scale="0">
+                <comment>所属角色</comment>
+            </column>
+        </property>
+        <property name="isStop" type="java.lang.String">
+            <column name="IS_STOP" length="1">
+                <comment>是否停用</comment>
+            </column>
+        </property>
+        <property name="handId" type="string">
+        	<column name="PDA_SN">
+        		<comment>手持机编号</comment>
+        	</column>
+        </property>
+        <property name="docId" type="string">
+        	<column name="DOC_ID">
+        		<comment>对应卫生打平台登录工号</comment>
+        	</column>
+        </property>
+    </class>
+</hibernate-mapping>

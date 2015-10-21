@@ -1,0 +1,38 @@
+* { margin:0; padding:0; list-style:none;}
+html { height:100%;  overflow:auto; background:#a5bee6;}
+body { height:100%; font-size:12px; font-family:ËÎÌå£» overflow:hidden; background:#a5bee6;}
+ul, ul li { list-style:none; list-style-image:none; list-style-type:none;}
+table{border-collapse:collapse; border:0px;}
+td { vertical-align:top; padding:0px;}
+a{ color:#5d7bc7;}
+a:hover{text-decoration:none; }
+img, a img { border:0;}
+.clear { clear:both;}
+.red{ color:#F00;}
+/* left*/
+
+.leftt{ background:url(../images/leftt.jpg) left top no-repeat; width:214px; height:29px; line-height:29px;   font-size:14px;  color:#324269; font-weight:600; text-align:center; margin-left:4px; }
+.leftt img{ margin:6px 0; vertical-align:middle;}
+.leftm{ width:214px; padding-top:2px;  background:url(../images/leftm.jpg) left top repeat-y; height:90.5%; margin-left:4px; overflow-y: auto;overflow-x: hidden;  }
+.leftm table{ width:210px; margin:0 auto; }
+.leftm table tr{ margin:0; padding:0; }
+.leftm table tr td{ background:url(../images/tdbg.jpg) left top repeat-x; height:30px; line-height:30px; color:#324269;      }
+.leftm table tr td img{ vertical-align:middle; margin:11px 6px; margin-left:8px; margin-right:6px;}
+.leftm table tr td a{  text-decoration:none;  }
+.leftx{ padding-left:6px;}
+.leftx td { font-family: Tahoma; color: #fff; font-size: 9pt;  }
+.leftul{ margin:0; padding:0;  padding-bottom:12px;}
+.leftul li {  font-family:ËÎÌå; font-size:12px; width:170px; padding-left:12px; vertical-align:middle; margin:0 auto; border-bottom:1px solid #c2c2c2; height:26px; line-height:26px; }
+.leftul li a{ font-size: 12px; color:#666; text-decoration:none;}
+.leftul li img{ margin-right:3px; vertical-align:middle;}
+.leftul a:hover { font-size:12px; color:#5d7bc7; }
+.leftul a:active { font-size:12px; color:#5d7bc7; }
+.spl{ float:left; margin-top:3px; margin-left:6px; }
+.spr{ float:right; margin-right:3px; margin-top:6px;}
+
+.leftb{ width:214px; height:10px; background:url(../images/leftbbg.jpg) left top no-repeat; margin-left:4px;}
+
+
+
+
+

@@ -1,0 +1,36 @@
+﻿* { margin:0; padding:0; list-style:none;}
+			html { height:100%; overflow:hidden; background:#edf7ff;}
+			body { height:100%; font-size:12px; font-family:宋体； overflow:hidden; background:#edf7ff;}
+ul, ul li { list-style:none; list-style-image:none; list-style-type:none;}
+table{border-collapse:collapse; border:0px;}
+td { vertical-align:top; padding:0px;}
+a{ color:#1460a7;}
+a:hover{text-decoration:none; }
+img, a img { border:0;}
+.clear { clear:both;}
+.red{ color:#F00;}
+.left{    }
+.leftt{ background:url(leftt.png) left top no-repeat; width:200px; height:32px; font-size:14px; padding-left:30px; color:#FFF; line-height:32px;}
+.leftt img{ vertical-align:middle;}
+.leftm{ width:198px; padding-top:10px;   height:80%; border:1px solid #eaedf0;   background:#ffffff;  }
+.leftm table{ width:198px; }
+.leftm table tr{ margin:0; padding:0; }
+.leftm table tr td{ background:url(tdbg.jpg) left top repeat-x; height:36px;  padding-left:6px; line-height:30px   }
+.leftm table tr td img{ vertical-align:middle; margin-left:8px; margin-right:6px;}
+.leftm table tr td a{  text-decoration:none;}
+.leftx{ padding-left:6px;}
+.leftx td { font-family: Tahoma; color: #fff; font-size: 9pt;  }
+.leftul{ margin:0; padding:0; background:#fff;  margin-top:3px; padding-bottom:12px;}
+
+
+.leftul li {  font-family:宋体; font-size:12px; width:170px; padding-left:12px; vertical-align:middle; margin:0 auto; border-bottom:1px solid #ecece8; height:22px; padding-top:5px; }
+.leftul li a{ font-size: 12px; color:#666; text-decoration:none;}
+.leftul li img{ margin-right:3px; vertical-align:middle;}
+
+.leftul a:hover { font-size:12px; color:#136da6; }
+.leftul a:active { font-size:12px; color:#136da6; }
+
+
+.spl{ float:left; margin-top:3px; margin-left:6px; }
+.spr{ float:right; margin-right:3px; margin-top:6px;}
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kh.hsfs.model.HsfsUserRole" table="hsfs_user_role">
+        <comment>用户角色表</comment>
+        <id name="roleCode" type="int">
+            <column name="ROLE_CODE" />
+            <generator class="increment" />
+        </id>
+        <property name="roleName" type="java.lang.String">
+            <column name="ROLE_NAME">
+                <comment>角色名</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

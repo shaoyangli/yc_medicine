@@ -1,0 +1,163 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="  
+             http://www.springframework.org/schema/beans 
+             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+             http://www.springframework.org/schema/context
+        	 http://www.springframework.org/schema/context/spring-context-3.0.xsd
+             http://www.springframework.org/schema/aop 
+             http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+             http://www.springframework.org/schema/tx 
+             http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!--DataBase Configuration-->
+	<context:annotation-config/>
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/yc_medicine</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>root</value>
+		</property>
+		<property name="initialSize" value="10" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="10" />
+		<property name="minIdle" value="5" />
+	</bean>
+	<bean id="template"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQL5Dialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/kh/hsfs/model/HsfsOrgBaseInfo.hbm.xml</value>
+				<value>
+					com/kh/hsfs/model/HsfsOrgExtendInfo.hbm.xml
+				</value>
+				<value>com/kh/hsfs/model/HsfsOrgServFile.hbm.xml</value>
+				<value>com/kh/hsfs/model/HsfsOrgServInfo.hbm.xml</value>
+				
+				<value>
+					com/kh/hsfs/model/HsfsOrgExtend.hbm.xml
+				</value>
+				
+                <value>
+					com/kh/hsfs/model/HsfsUserInfo.hbm.xml
+				</value>
+				<value>
+					com/kh/hsfs/model/HsfsUserPower.hbm.xml
+				</value>
+				<value>
+					com/kh/hsfs/model/HsfsUserRole.hbm.xml
+				</value>
+				<value>
+					com/kh/hsfs/model/HsfsUserRolePower.hbm.xml
+				</value>
+				<value>
+					com/kh/hsfs/model/Notice.hbm.xml
+				</value>
+				<value>
+					com/kh/hsfs/model/HsfsEmail.hbm.xml
+				</value>
+				<value>
+					com/kh/hsfs/model/HsfsReplyBook.hbm.xml
+				</value>
+				<value>
+					com/kh/hsfs/model/HsfsGuestBook.hbm.xml
+				</value>
+				<value>
+					com/kh/hsfs/model/HsfsEmailFile.hbm.xml
+				</value>
+                <value>
+                    com/kh/hsfs/model/HospitalInfo.hbm.xml
+                </value>
+                <value>
+                    com/kh/hsfs/model/MedicineCsa.hbm.xml
+                </value>
+                <value>
+                    com/kh/hsfs/model/MeddetailCsa.hbm.xml
+                </value>
+                <value>
+                    com/kh/hsfs/model/MedicineFk.hbm.xml
+                </value>
+                <value>
+                    com/kh/hsfs/model/MeddetailFk.hbm.xml
+                </value>
+                <value>
+                    com/kh/hsfs/model/MedicineVpa.hbm.xml
+                </value>
+                <value>
+                    com/kh/hsfs/model/MeddetailVpa.hbm.xml
+                </value>
+                <value>
+                    com/kh/hsfs/model/MedicineWf.hbm.xml
+                </value>
+                <value>
+                    com/kh/hsfs/model/MeddetailWf.hbm.xml
+                </value>
+			</list>
+		</property>
+	</bean>
+	<bean id="baseDao" class="com.kh.base.impl.BaseDaoImpl"
+		abstract="false" lazy-init="default" autowire="default">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- 事务配置 -->
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<!--	 配置事务传播特性 -->
+<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="service*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" />
+			<!--<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+		--></tx:attributes>
+	</tx:advice><!--
+		 配置哪些类的方法进行事务管理 
+	--><!--<aop:config>
+		<aop:pointcut
+			expression="execution(* com.kh.*.impl.*.*(..)) "
+			id="addManagerMethod" />
+		<aop:advisor advice-ref="txAdvice"
+			pointcut-ref="addManagerMethod" />
+	</aop:config>
+ 
+	-->
+    <bean id="hibernateTemplate"
+		class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

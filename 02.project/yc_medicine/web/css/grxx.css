@@ -1,0 +1,50 @@
+* { margin:0; padding:0; list-style:none;}
+html { height:100%; overflow:auto; background:#a5bee6;}
+body { height:100%; font-size:12px; font-family:ÀŒÃÂ£ª overflow:hidden; background:#a5bee6;}
+ul, ul li { list-style:none; list-style-image:none; list-style-type:none;}
+table{border-collapse:collapse; border:0px;}
+td { vertical-align:top; padding:0px;}
+a{ color:#324269; text-decoration:none;}
+a:hover{text-decoration:none; }
+img, a img { border:0;}
+.clear { clear:both;}
+.red{ color:#F00;}
+
+/* mian*/
+.main{ width:100%; heiget:auto; height:88%;_height:88%; margin:0 auto;}
+.maint{ height:28px; width:100%; margin:0 auto; font-size:12px; color:#145ea7;}
+.maintl{ float:left; background:url(../images/maintl.gif) left top no-repeat; height:30px; width:7px;}
+.maintm{float:left;  background:url(../images/miantm.gif) left top repeat-x; width:98%; height:30px; color:#324269; font-size:12px; line-height:30px; }
+.maintm img{margin:7px 6px; vertical-align:middle; }
+.maintr{float:left;  background:url(../images/miantr.gif) left top no-repeat; height:30px; width:7px;}
+.box{ background:#becde5; width:99.6%; padding-left:1px; padding-right:1px;}
+.mianm{ border:1px solid #5e7abd; border-bottom:0; margin:0 auto; margin-left:1px;  width:99%; height:auto; min-height:100%;_height:100%;  padding-bottom:12px;  background:#f2f2f2;}
+.mainmt{ background:url(../images/cxbg.jpg) left top repeat-x;   height:auto;  width:99%;  margin:0; padding-top:20px; }
+.mainmt table{ border:1px solid #d2d2d2; width:98%; background:#ffffff; margin:0 auto; }
+.mainmt table tr{ margin:0; padding:0;}
+.mainmt table tr td{ vertical-align:middle; border:1px solid #d2d2d2; height:35px;  font-size:12px; color:#666; text-align:left; padidng-left:6px;}
+.mainmt table tr td input{ margin-left:6px; vertical-align:middle; margin-right:3px; color:#333; vertical-align:middle;  font-size:12px; }
+.mainmt table tr td select{ width:100px; margin-left:6px; vertical-align:middle;color:#333;  margin-right:4px; font-size:12px; }
+.mainmt table tr td textarea{ margin-left:6px; vertical-align:middle;color:#333;  margin-right:3px; vertical-align:middle; font-size:12px;margin-top:7px;margin-bottom:7px;}
+.mainmt table tr td img{vertical-align:middle; margin-left:6px; }
+.mainmt table tr td.tstd{ background:#f5f5f5; text-align:right; padding-right:4px; color:#324269; width:100px;}
+.mainmt table tr td.tstd1{ background:#f5f5f5; text-align:right; padding-right:4px; color:#324269; width:50px;}
+
+.buut{ margin-top:12px; text-align:right; padding-right:52px; }
+.an{width:69px; height:21px; background:url(../images/acz.jpg) no-repeat; border:0; vertical-align:bottom; margin-right:6px;}
+.ann{width:69px; height:21px; background:url(../images/cz.jpg) no-repeat; border:0; vertical-align:bottom;}
+
+
+
+
+
+
+/* foot‘≤Ω«*/
+.mainb{ height:8px; width:100%; margin:0 auto;}
+.mainbl{ float:left; background:url(../images/mainbl.jpg) left top no-repeat; height:8px; width:8px;}
+.mainbm{float:left;  background:url(../images/mianbm.jpg) left top repeat-x; width:97.7%; height:8px; }
+.mainbr{float:left;  background:url(../images/mianbr.jpg) left top no-repeat; height:8px; width:8px;}
+
+
+
+

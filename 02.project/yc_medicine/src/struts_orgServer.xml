@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.multipart.maxSize" value="62428800" />
+	<package name="orgServer" extends="json-default">
+		<action name="orgServer_*" class="orgServerAction" method="{1}">
+
+			<result name="findServiceType" type="json"></result>
+			<result name="findCheckIndex" type="json"></result>
+			<result name="findOrgService" type="json"></result>
+			<result name="removeOrgService" type="json"></result>
+			<result name="findSingleOrgServce">/hsfs/org/orgServerMore.jsp</result>
+			<result name="saveOrgService">/hsfs/org/orgServerAdd.jsp</result>
+			<result name="findOrgServiceFile" type="json"></result>
+			<result name="checkFileExist" type="json"></result>
+			<result name="uploadFile" type="json">
+				<param name="contentType">
+        			text/html
+        		</param>
+			</result>
+			<result type="json" name="error">
+        		<param name="contentType">
+        			text/html
+        		</param>
+        	</result>
+		</action>
+		<!-- 处理文件下载action -->
+		<!--  
+		<action name="orgService" class="orgServerAction">
+			<result type="stream">
+				<param name="contentDisposition">attachment;filename=${filename}</param>
+				<param name="inputName">downloadFile</param>
+				<param name="contentType">application/octet-stream</param>
+				<param name="bufferSize">1140960000000000</param>
+			</result>
+		</action>
+		-->
+		<action name="orgService" class="orgServerAction" method="downFile">
+			<result name="error">/hsfs/org/orgServerMore.jsp</result>
+			
+		</action>
+	</package>
+
+</struts>

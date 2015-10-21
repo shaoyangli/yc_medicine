@@ -1,0 +1,81 @@
+* { margin:0; padding:0; list-style:none;}
+html { height:100%; overflow:auto; background:#a5bee6;}
+body { height:100%; font-size:12px; font-family:宋体； overflow:hidden; background:#a5bee6;}
+ul, ul li { list-style:none; list-style-image:none; list-style-type:none;}
+table{border-collapse:collapse; border:0px;}
+td { vertical-align:top; padding:0px;}
+a{ color:#5d7bc7; text-decoration:none;}
+a:hover{text-decoration:none; }
+img, a img { border:0;}
+.clear { clear:both;}
+.red{ color:#F00;}
+
+
+/* mian*/
+.main{ width:100%; height:93%; margin:0 auto;}
+.maint{ height:28px; width:100%; margin:0 auto;  font-size:12px; color:#145ea7;}
+.maintl{ float:left; background:url(../images/maintl.gif) left top no-repeat; height:30px; width:7px;}
+.maintm{float:left;  background:url(../images/miantm.gif) left top repeat-x; width:98%; height:30px; color:#324269;  font-size:12px; line-height:30px; }
+.maintm img{margin:7px 6px; vertical-align:middle; }
+.maintr{float:left;  background:url(../images/miantr.gif) left top no-repeat; height:30px; width:7px;}
+.box{ background:#becde5; width:99.6%; padding-left:1px; padding-right:1px;}
+.mianm{ border:1px solid #5e7abd; border-bottom:0; margin:0 auto; margin-left:1px;  width:99.2%; height:auto; min-height:95.5%;_height:95.5%;  padding-bottom:12px;  background:#ededed;}
+.mainmt{ background:url(../images/cxbg.jpg) left top repeat-x;padding-top:8px; height:55px; margin:0; border-bottom:1px solid #dcdcdc;}
+.mainmt table{ width:98%; margin:0 auto; margin-left:8px;}
+.mainmt table tr{}
+.mainmt table tr td{height:23px;text-align:left; vertical-align:middle;}
+.mainmt table tr td.tstd{text-align:right; }
+.mainmt table tr td img{vertical-align:middle; margin-left:6px; }
+.mainmt h4{ font-size:12px;  color:#324269; height:24px; padding-top:6px; }
+.mainmt h4 img{ margin:7px 6px; vertical-align:middle; margin-right:4px; margin-left:6px;}
+.mainmt p{ font-size:12px; color:#6a7f92; margin-left:18px; margin-top:8px;_margin-top:4px;}
+.mainmt p select{ width:160px; margin-right:10px;}
+.an{width:69px; height:21px; background:url(../images/cx.jpg) no-repeat; border:0; vertical-align:bottom;}
+.an2{width:69px; height:21px; background:url(../images/tj.png) no-repeat; border:0; vertical-align:bottom;}
+.an1{width:80px; height:21px; background:url(../images/js.gif) no-repeat; border:0; vertical-align:bottom;}
+
+
+/* biao*/
+.mianmm{  border-top:1px solid #fff; width:99%;  margin:0 auto;   }
+.mianmm table{ width:98%; background:#f5f5f5; margin:0 auto;  border:1px solid #d2d2d2; margin-top:8px;  text-align:left; padding-left:6px;}
+.mianmm table tr{ margin:0; padding:0}
+.mianmm table tr.tstr{ background:#fafbfc;}
+
+
+.mianmm table th{ background:url(../images/thbg.jpg) left top repeat-x; text-align:center; font-size:12px; color:#333;  border-bottom:1px solid #fff; border-right:1px solid #d2d2d2;   height:25px; font-weight:normal;}
+.mianmm table tr td{ height:27px;  border-bottom:1px solid #d2d2d2; text-align:left; padding-left:6px; vertical-align:middle; font-size:12px; color:#666; border-right:1px solid #d2d2d2;  }
+.mianmm table tr td img{ vertical-align:middle; margin-right:3px; margin-left:6px;}
+.mianmm table tr td
+.ann{width:18px; height:19px; background:url(../images/zzd.jpg) no-repeat; border:0; vertical-align:bottom;}
+.ts{ background:url(../images/tabb.jpg) left top repeat-x; height:27px;  }
+.ts td a{ color:#666;}
+.ts td a:hover{ color:#324269;}
+.ts select{ width:35px; height:18px; vertical-align:middle;}
+.ts input{ vertical-align:middle;}
+
+/* foot圆角*/
+.mainb{ height:8px; width:100%;  margin:0 auto;}
+.mainbl{ float:left; background:url(../images/mainbl.jpg) left top no-repeat; height:8px; width:8px;}
+.mainbm{float:left;  background:url(../images/mianbm.jpg) left top repeat-x; width:97.8%; height:8px; }
+.mainbr{float:left;  background:url(../images/mianbr.jpg) left top no-repeat; height:8px; width:8px;}
+
+/* 新增样式*/
+.leftcl{ float:left; width:50%;  margin-top:8px; }
+.leftcl h4{ font-size:12px;  color:#324269; height:24px; }
+.leftcl h4 img{ margin:7px 6px; vertical-align:middle; margin-right:4px; margin-left:6px;}
+.leftcl p{ font-size:12px; color:#6a7f92; margin-left:18px; margin-top:8px;_margin-top:4px;}
+.leftcl p select{ width:120px; margin-right:12px;}
+.an{width:69px; height:21px; background:url(../images/cx.jpg) no-repeat; border:0; vertical-align:bottom;}
+.leftcl table{ width:96%; margin-bottom:8px;}
+
+
+.leftcr{ float:left; width:47%; margin-top:8px; border-left:0;   overflow:auto; }
+.leftcr table{ width:100%; margin:0 auto;  }
+
+
+/* 新增样2式*/
+.mianmm  h3{ text-align:center; margin-top:8px; color:#324269;}
+#tstab{ width:100%;  border:1px solid #c9c9c9;}
+#tstab th{ background:#e0e8f0; border-bottom:0; border-top:1px solid #cecece; border-bottom:1px solid #cecece;  border-right:1px solid #cecece; padding:0; border-collapse:collapse; }
+.spl{ float:left; padding-left:3px; font-size:12px; color:#666;  }
+.spr{ float:right; padding-right:4px; font-size:12px; color:#666; }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+                       "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    
+	<!-- 公用impl 获得区域信息 -->
+	<bean id="areaimpl" class="com.kh.hsfs.impl.AreaImpl">
+		<property name="bdi" ref="baseDao" />
+	</bean>
+	<bean id="area" class="com.kh.util.AreaUtil">
+	</bean>
+	
+</beans>

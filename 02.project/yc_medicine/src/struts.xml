@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="gbk"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple" />
+	<package name="sa" namespace="/hsfs" extends="json-default">
+		<action name="chart" class="com.kh.hsfs.action.ImageExportAction">
+			<result type="json">
+				chart\.categoriesLocal\[\d+\],
+				chart\.series\[\d+\]\.name,
+				chart\.series\[\d+\]\.data\[\d+\]
+				chart\.series_pie\[\d+\]\.name,
+				chart\.series_pie\[\d+\]\.data\[\d+\]\[\d+\]
+			</result>
+		</action>
+		
+	</package>
+	
+	<include file="struts_org.xml"/>
+	<include file="struts_orgExtend.xml"/>
+	<include file="struts_orgServer.xml"/>
+	<include file="struts_account.xml"/>
+    <include file="struts_hospital.xml"/>
+</struts>

@@ -1,0 +1,49 @@
+div.sdmenu {
+	width: 210px;
+	font-family:宋体
+	font-size: 12px;
+	padding-bottom: 10px;
+	background:#f2f2f2;
+	color: #324269;
+	margin:0 auto; 
+}
+div.sdmenu div {
+	background: url(../images/tdbg.jpg) repeat-x;
+	overflow: hidden; margin-top:6px;
+}
+
+div.sdmenu div.collapsed {
+	height: 27px;
+}
+div.sdmenu div span {
+	display: block;
+	padding: 6px 27px;
+	padding-top:8px;
+    font-size:12px;  color:#324269;
+	background: url(../images/zlimg.gif) no-repeat 10px 10px;
+	cursor: hand;
+
+}
+
+
+div.sdmenu div ul{ margin:0; padding:0; list-style:none; list-style-image:none; list-style-type:none;}
+div.sdmenu div ul li{ width:180px; 	background: url(../images/xsj.gif) no-repeat 6px center;  vertical-align:middle; margin:0 auto; border-bottom: 1px solid #ddd;color: #666; height:26px; line-height:26px; font-size:12px;}
+div.sdmenu div ul li img{margin-right:3px; vertical-align:middle;}
+div.sdmenu div ul li a {
+	text-decoration: none;
+	padding-left:20px;
+	display: block;
+	color: #666;
+}
+
+div.sdmenu div a:hover {
+	
+	color: #324269;
+	text-decoration: none;
+}
+
+
+
+
+
+

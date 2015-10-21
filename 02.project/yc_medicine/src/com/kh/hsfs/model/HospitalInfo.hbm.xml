@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.kh.hsfs.model.HospitalInfo" table="hospitalinfo">
+        <comment>住院信息</comment>
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="increment" />
+        </id>
+        <property name="hospcode" type="java.lang.String">
+            <column name="hospcode" length="20" not-null="true">
+                <comment>住院号</comment>
+            </column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="50" not-null="true">
+                <comment>姓名</comment>
+            </column>
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="sex" length="1" not-null="true">
+                <comment>性别</comment>
+            </column>
+        </property>
+        <property name="age" type="java.lang.String">
+            <column name="age" length="3">
+                <comment>年龄</comment>
+            </column>
+        </property>
+        <property name="height" type="java.lang.String">
+            <column name="height" precision="3" scale="0">
+                <comment>身高</comment>
+            </column>
+        </property>
+        <property name="weight" type="java.lang.String">
+            <column name="weight" length="3">
+                <comment>体重</comment>
+            </column>
+        </property>
+        <property name="surface_area" type="java.lang.String">
+        	<column name="surface_area" length="10">
+        		<comment>体表面积</comment>
+        	</column>
+        </property>
+        <property name="operation_time" type="java.lang.String">
+        	<column name="operation_time" length="14">
+        		<comment>手术时间</comment>
+        	</column>
+        </property>
+    </class>
+</hibernate-mapping>

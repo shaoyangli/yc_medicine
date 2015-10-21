@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name ="orgExtend" extends="json-default" >
+		<action name="orgExtend_*" class="orgExtendManageAction" method="{1}">
+			<result name="saveOrgExtend" type="json"></result>
+			<result name="findOrgExtend" type="json"></result>
+			<result name="removeOrgExtend" type="json"></result>
+			<result name="findOneOrgExtend">/hsfs/org/orgextendUpdate.jsp</result>
+			<result name="FindAccount">/hsfs/org/orgAccountUpdate.jsp</result>
+			<result name="updateOrgExtend" type="json"></result>
+			<result name="orgAccountUpdate" type="json"></result>
+			<result name="saveOrgExtends" type="json"></result>
+			<result name="findOrgAccounts" type="json"></result>
+		</action>
+	</package>
+	
+</struts>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name ="hosp" namespace="/medicine/hosp" extends="json-default" >
+        <interceptors>
+            <interceptor name="LoginInterceptor" class="LoginInterceptor"/>
+            <interceptor-stack name="myDefaultStack">
+                <interceptor-ref name="LoginInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>
+        <action name="hosp" class="hospitalInfoAction">
+            <result name="findHosp">/medicine/hosp/hospUpdate.jsp</result>
+            <result name="findHospList" type="json"></result>
+            <result name="saveHosp" type="json"/>
+            <result name="findAllHosp" type="json"/>
+            <result name="removeHosp" type="json"></result>
+        </action>
+
+        <action name="csa" class="medicineCsaAction">
+            <result name="toUpdateCsa">/medicine/hosp/medicineCsa.jsp</result>
+            <result name="toMedicineCsaList">/medicine/hosp/medicineCsaList.jsp</result>
+            <result name="removeCsa" type="json"></result>
+            <result name="findCsaList" type="json"></result>
+            <result name="saveMedCsa" type="json"/>
+            <result name="SaveCsaDetail" type="json"></result>
+            <result name="ycxynd" type="json"></result>
+            <result name="ycgyjlfw" type="json"></result>
+        </action>
+
+        <action name="fk" class="medicineFkAction">
+            <result name="toUpdateFk">/medicine/hosp/medicineFk.jsp</result>
+            <result name="toMedicineFkList">/medicine/hosp/medicineFkList.jsp</result>
+            <result name="removeFk" type="json"></result>
+            <result name="findFkList" type="json"></result>
+            <result name="saveMedFk" type="json"/>
+            <result name="SaveFkDetail" type="json"></result>
+            <result name="ycxynd" type="json"></result>
+            <result name="ycgyjlfw" type="json"></result>
+        </action>
+
+        <action name="vpa" class="medicineVpaAction">
+            <result name="toUpdateVpa">/medicine/hosp/medicineVpa.jsp</result>
+            <result name="toMedicineVpaList">/medicine/hosp/medicineVpaList.jsp</result>
+            <result name="removeVpa" type="json"></result>
+            <result name="findVpaList" type="json"></result>
+            <result name="saveMedVpa" type="json"/>
+            <result name="SaveVpaDetail" type="json"></result>
+            <result name="ycxynd" type="json"></result>
+            <result name="ycgyjlfw" type="json"></result>
+        </action>
+
+        <action name="wf" class="medicineWfAction">
+            <result name="toUpdateWf">/medicine/hosp/medicineWf.jsp</result>
+            <result name="toMedicineWfList">/medicine/hosp/medicineWfList.jsp</result>
+            <result name="removeWf" type="json"></result>
+            <result name="findWfList" type="json"></result>
+            <result name="saveMedWf" type="json"/>
+            <result name="SaveWfDetail" type="json"></result>
+            <result name="ycxynd" type="json"></result>
+            <result name="ycgyjlfw" type="json"></result>
+        </action>
+
+    </package>
+
+</struts>

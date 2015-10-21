@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.kh.hsfs.model.MedicineWf" table="medicine_wf">
+        <comment>csa给药信息</comment>
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="increment"/>
+        </id>
+        <property name="hid" type="int">
+            <column name="hid" not-null="true">
+                <comment>住院信息id</comment>
+            </column>
+        </property>
+        <property name="dose" type="java.lang.String">
+            <column name="dose" length="10">
+                <comment>给药剂量</comment>
+            </column>
+        </property>
+        <property name="dv" type="java.lang.String">
+            <column name="dv" length="10">
+                <comment>检测的药物浓度，有检测浓度输入相应检测浓度，无浓度空白</comment>
+            </column>
+        </property>
+        <property name="adm" type="java.lang.String">
+            <column name="adm" length="1">
+                <comment>是否合用胺碘酮;合用输入”1”，未合用输入“0”；</comment>
+            </column>
+        </property>
+        <property name="cyp" type="java.lang.String">
+            <column name="cyp" length="1">
+                <comment>CYP2C9基因型，若为*1/*1型,输入“0”，若为*1/*3型,输入“1”</comment>
+            </column>
+        </property>
+        <property name="vkorc" type="java.lang.String">
+            <column name="vkorc" length="1">
+                <comment>VKORC1基因型，若为AA型,输入“0”，若为AG或GG型,输入“1”；</comment>
+            </column>
+        </property>
+        <property name="jg" type="java.lang.String">
+            <column name="jg" length="10">
+                <comment>剂量调整间隔</comment>
+            </column>
+        </property>
+        <property name="xysx" type="java.lang.String">
+            <column name="xysx" length="10">
+                <comment>预测血液浓度上限</comment>
+            </column>
+        </property>
+        <property name="xyxx" type="java.lang.String">
+            <column name="xyxx" length="10">
+                <comment>预测血液浓度下限</comment>
+            </column>
+        </property>
+        <property name="zxyl" type="java.lang.String">
+            <column name="zxyl" length="10">
+                <comment>最小用药量</comment>
+            </column>
+        </property>
+        <property name="zdyl" type="java.lang.String">
+            <column name="zdyl" length="10">
+                <comment>最大用药量</comment>
+            </column>
+        </property>
+        <property name="ycxy" type="java.lang.String">
+            <column name="ycxy" length="10">
+                <comment>预测血液浓度</comment>
+            </column>
+        </property>
+        <property name="jyyl" type="java.lang.String">
+            <column name="jyyl" length="10">
+                <comment>医生建议用药</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
