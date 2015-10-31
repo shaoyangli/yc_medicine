@@ -2,10 +2,11 @@ package com.kh.util;
 
 import com.kh.hsfs.dao.HospitalInfoDao;
 import com.kh.hsfs.dao.MeddetailCsaDao;
-import com.kh.hsfs.impl.HospitalInfoImpl;
 import com.kh.hsfs.model.HospitalInfo;
 import com.kh.hsfs.model.MeddetailCsa;
 import com.kh.hsfs.model.MedicineCsa;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.io.*;
 import java.text.DateFormat;
@@ -24,7 +25,7 @@ import java.util.regex.Pattern;
  */
 public class MedicineUtil {
     private static String key = "0";
-
+    static Log log = LogFactory.getLog(MedicineUtil.class);
     //根据前端信息得到要写入的数据
     public static String save_ParaCsa(int mid, int id, MeddetailCsaDao meddetailCsaDao, HospitalInfoDao hospitalInfoDao, MedicineCsa csa) throws Exception {
         //1.保存给药明细，需要先删除已存在的mid给药明细
@@ -52,7 +53,7 @@ public class MedicineUtil {
             if (result != null && !"".equals(result)) {
                 mdcsa = meddetailCsaDao.findCsaById(Integer.parseInt(result));
                 cvsText = cvsText + "\r\n" + mdcsa.getMid() + "," + mdcsa.getDat2() + "," + mdcsa.getTime() + "," + mdcsa.getAmt()
-                        + "," + mdcsa.getCmt() + "," + mdcsa.getRate() + ",," + mdcsa.getMdv() + "," + mdcsa.getWt()
+                        + "," + mdcsa.getCmt() + "," + mdcsa.getRate() + "," + mdcsa.getDv() + "," + mdcsa.getMdv() + "," + mdcsa.getWt()
                         + "," + mdcsa.getHtc() + "," + mdcsa.getAtf() + "," + mdcsa.getDt() + "," + mdcsa.getTg()
                         + "," + mdcsa.getAge() + "," + mdcsa.getSex() + "," + mdcsa.getHt() + "," + mdcsa.getRbc() + "," + mdcsa.getTbil()
                         + "," + mdcsa.getAlt() + "," + mdcsa.getAst();
@@ -126,7 +127,7 @@ public class MedicineUtil {
                 savedetail(meddetailCsaDao, id, mid, dat2, time2, amt2, cmt, rate, "", mdv, wt, htc, atf, dt, tg, age, sex, ht, rbc, tbil, alt, ast);
                 dat2 = getDateAfter(dat2, 1);
             }
-
+            log.debug(cvsText);
             if ("".equals(dv)) {
                 mdv2 = "1";
             } else {
@@ -143,6 +144,7 @@ public class MedicineUtil {
                 savedetail(meddetailCsaDao, id, mid, dat3, t3, "", "2", "", dv, mdv2, wt, htc, atf, dt, tg, age, sex, ht, rbc, tbil, alt, ast);
 
             }
+            log.debug(cvsText);
         } else if ("3".equals(ratemj) || "1".equals(ratemj)) {     //24H滴注||QD
             String t3 = csa.getCxsj();  //抽血时间
             String dat2 = dat1;
@@ -154,7 +156,7 @@ public class MedicineUtil {
                 savedetail(meddetailCsaDao, id, mid, dat2, t, amt, cmt, rate, "", mdv, wt, htc, atf, dt, tg, age, sex, ht, rbc, tbil, alt, ast);
                 dat2 = getDateAfter(dat2, 1);
             }
-
+            log.debug(cvsText);
             if ("".equals(dv)) {
                 mdv2 = "1";
             } else {
@@ -169,6 +171,7 @@ public class MedicineUtil {
                 cvsText = cvsText + "\r\n" + mid + "," + dat3 + "," + t3 + ",,2,," + dv + "," + mdv2 + "," + wt + "," + htc + "," + atf + "," + dt + "," + tg + "," + age + "," + sex + "," + ht + "," + rbc + "," + tbil + "," + alt + "," + ast + "\r\n";
                 savedetail(meddetailCsaDao, id, mid, dat3, t3, "", "2", "", dv, mdv2, wt, htc, atf, dt, tg, age, sex, ht, rbc, tbil, alt, ast);
             }
+            log.debug(cvsText);
         }
         return cvsText;
     }
@@ -191,7 +194,7 @@ public class MedicineUtil {
             if (result != null && !"".equals(result)) {
                 mdcsa = meddetailCsaDao.findCsaById(Integer.parseInt(result));
                 cvsText = cvsText + "\r\n" + mdcsa.getMid() + "," + mdcsa.getDat2() + "," + mdcsa.getTime() + "," + mdcsa.getAmt()
-                        + "," + mdcsa.getCmt() + "," + mdcsa.getRate() + ",," + mdcsa.getMdv() + "," + mdcsa.getWt()
+                        + "," + mdcsa.getCmt() + "," + mdcsa.getRate() + "," + mdcsa.getDv() + "," + mdcsa.getMdv() + "," + mdcsa.getWt()
                         + "," + mdcsa.getHtc() + "," + mdcsa.getAtf() + "," + mdcsa.getDt() + "," + mdcsa.getTg()
                         + "," + mdcsa.getAge() + "," + mdcsa.getSex() + "," + mdcsa.getHt() + "," + mdcsa.getRbc() + "," + mdcsa.getTbil()
                         + "," + mdcsa.getAlt() + "," + mdcsa.getAst();
@@ -263,7 +266,7 @@ public class MedicineUtil {
                 cvsText = cvsText + "\r\n" + mid + "," + dat2 + "," + time2 + "," + amt2 + "," + cmt + "," + rate + ",," + mdv + "," + wt + "," + htc + "," + atf + "," + dt + "," + tg + "," + age + "," + sex + "," + ht + "," + rbc + "," + tbil + "," + alt + "," + ast;
                 dat2 = getDateAfter(dat2, 1);
             }
-
+            log.debug(cvsText);
             if ("".equals(dv)) {
                 mdv2 = "1";
             } else {
@@ -276,6 +279,8 @@ public class MedicineUtil {
                 cvsText = cvsText + "\r\n" + mid + "," + dat3 + "," + t + "," + amt + "," + cmt + "," + rate + ",," + mdv + "," + wt + "," + htc + "," + atf + "," + dt + "," + tg + "," + age + "," + sex + "," + ht + "," + rbc + "," + tbil + "," + alt + "," + ast;
                 cvsText = cvsText + "\r\n" + mid + "," + dat3 + "," + t3 + ",,2,," + dv + "," + mdv2 + "," + wt + "," + htc + "," + atf + "," + dt + "," + tg + "," + age + "," + sex + "," + ht + "," + rbc + "," + tbil + "," + alt + "," + ast + "\r\n";
             }
+            log.debug(cvsText);
+
         } else if ("3".equals(ratemj) || "1".equals(ratemj)) {     //24H滴注||QD
             String t3 = csa.getCxsj();  //抽血时间
             String dat2 = dat1;
@@ -286,6 +291,7 @@ public class MedicineUtil {
                 cvsText = cvsText + "\r\n" + mid + "," + dat2 + "," + t + "," + amt + "," + cmt + "," + rate + ",," + mdv + "," + wt + "," + htc + "," + atf + "," + dt + "," + tg + "," + age + "," + sex + "," + ht + "," + rbc + "," + tbil + "," + alt + "," + ast;
                 dat2 = getDateAfter(dat2, 1);
             }
+            log.debug(cvsText);
 
             if ("".equals(dv)) {
                 mdv2 = "1";
@@ -298,6 +304,8 @@ public class MedicineUtil {
                 cvsText = cvsText + "\r\n" + mid + "," + dat3 + "," + t + "," + amt + "," + cmt + "," + rate + ",," + mdv + "," + wt + "," + htc + "," + atf + "," + dt + "," + tg + "," + age + "," + sex + "," + ht + "," + rbc + "," + tbil + "," + alt + "," + ast;
                 cvsText = cvsText + "\r\n" + mid + "," + dat3 + "," + t3 + ",,2,," + dv + "," + mdv2 + "," + wt + "," + htc + "," + atf + "," + dt + "," + tg + "," + age + "," + sex + "," + ht + "," + rbc + "," + tbil + "," + alt + "," + ast + "\r\n";
             }
+            log.debug(cvsText);
+
         }
         return cvsText;
     }
@@ -340,15 +348,16 @@ public class MedicineUtil {
             String command2 = " && cd /D D: ";
             String command3 = " && cd D:/sdfyy.cn/aspx/yjk/YjkWeb3/nm6.g77/sdfyy/" + site;//YCCsA
             String command4 = " && nmgo " + ctlfile;               // yccsa.ctl
-//            System.out.println(command1+ command2 + command3 + command4);
+            log.debug(command1+ command2 + command3 + command4);
+
             Process process = run.exec(command1 + command2 + command3 + command4);
             InputStream in = process.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             String line;
             while ((line = reader.readLine()) != null) {
-//                System.out.println(line);
                 result = result + line;
             }
+            log.debug(result);
             in.close();
         } catch (Exception e) {
             throw new Exception(e);
@@ -374,7 +383,10 @@ public class MedicineUtil {
 
             String[] sArray = TextBox1.split("  ");//将读取的行内数据按空格分开，分别存入数组
             String str = sArray[6];  //取到结果值
+            log.debug(str);
             String[] s2 = str.split("E\\+");//分别读取结果值和幂次方值
+            log.debug(s2[0]);
+            log.debug(s2[1]);
             double pre_result = Double.parseDouble(s2[0]) * Math.pow(10, Double.parseDouble(s2[1]));//计算出结果值
             if (String.valueOf(pre_result).length() >= 6) {
                 result = String.valueOf(pre_result).substring(0, 6);

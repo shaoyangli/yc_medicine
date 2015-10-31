@@ -48,5 +48,10 @@
         		<comment>手术时间</comment>
         	</column>
         </property>
+        <property name="operator" type="java.lang.String">
+            <column name="operator" length="10">
+                <comment>操作员</comment>
+            </column>
+        </property>
     </class>
 </hibernate-mapping>

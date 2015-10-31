@@ -40,14 +40,14 @@ public class LoginAction extends ActionSupport {
 		String p = FileterString.StringFilter(loginPass);
 		isSuccess = userService.checkLogin(u, p, year);
 		
-		// 登录成功
-		if (isSuccess == 0) {
-			return "loginSuccess";
-
-		} else {
-			msg = "用户名或者密码错误，请重新登录！";
-			return "error";
-		}
+		// 登录处理
+//		if (isSuccess == 0) {
+	    return "loginSuccess";
+//
+//		} else {
+//			msg = "用户名或者密码错误，请重新登录！";
+//			return "error";
+//		}
 	}
 	/**
 	 * 手持机用户登录

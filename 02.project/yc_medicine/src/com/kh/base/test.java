@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * Created with IntelliJ IDEA.
  * User: Administrator
  * Date: 15-8-8
- * Time: ÏÂÎç5:42
+ * Time: ä¸‹åˆ5:42
  * To change this template use File | Settings | File Templates.
  */
 public class test {
@@ -19,14 +19,14 @@ public class test {
 //        Pattern pattern = Pattern.compile("\\d+");
 //        Matcher matcher = pattern.matcher("9:00");
 //        matcher.find();
-////        matcher.start();   //·µ»Ø0
-////        matcher.end();   //·µ»Ø3,Ô­ÒòÏàĞÅ´ó¼ÒÒ²Çå³şÁË,ÒòÎªmatches()ĞèÒªÆ¥ÅäËùÓĞ×Ö·û´®
-//        System.out.println(matcher.group());    //·µ»Ø2223
+////        matcher.start();   //è¿”å›0
+////        matcher.end();   //è¿”å›3,åŸå› ç›¸ä¿¡å¤§å®¶ä¹Ÿæ¸…æ¥šäº†,å› ä¸ºmatches()éœ€è¦åŒ¹é…æ‰€æœ‰å­—ç¬¦ä¸²
+//        System.out.println(matcher.group());    //è¿”å›2223
 //          System.out.println(daysBetween("2015-08-10","2015-08-15"));
 //        System.out.println(getDateAfter("2015-02-10", 10));
 //        System.out.println(compare_date("12:00","12:00"));
-        System.out.println(Count());
-//         double pre_result = Double.parseDouble("4.7985") * Math.pow(10, Double.parseDouble("01"));//¼ÆËã³ö½á¹ûÖµ
+//        System.out.println(Count());
+//         double pre_result = Double.parseDouble("4.7985") * Math.pow(10, Double.parseDouble("01"));//è®¡ç®—å‡ºç»“æœå€¼
 //         String result = String.valueOf(pre_result).substring(0, 6);
 //         System.out.println(result);
 //        try{
@@ -36,7 +36,14 @@ public class test {
 //        }
 //          String a="";
 //          System.out.println(Integer.parseInt(a));
-
+        String  a = "2"+2;
+        String  b = "2"+2;
+        String  c = "22";
+        String  d = "2";
+        String  e = d + 2;
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(a == b);
 
     }
 
@@ -52,7 +59,7 @@ public class test {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return (int) ((calendar2.getTimeInMillis() - calendar1.getTimeInMillis()) / 1000 / 60 / 60 / 24);//»ñÈ¡ÌìÊıµÄ²îÖµ¡£
+        return (int) ((calendar2.getTimeInMillis() - calendar1.getTimeInMillis()) / 1000 / 60 / 60 / 24);//è·å–å¤©æ•°çš„å·®å€¼ã€‚
     }
 
     public static String getDateAfter(String date, int day) {
@@ -88,7 +95,7 @@ public class test {
     }
 
     public static String Count() {
-        //´ò¿ªdosµ÷ÓÃÂ·¾¶
+        //æ‰“å¼€dosè°ƒç”¨è·¯å¾„
         Runtime run = Runtime.getRuntime();
         String result = "";
         try {

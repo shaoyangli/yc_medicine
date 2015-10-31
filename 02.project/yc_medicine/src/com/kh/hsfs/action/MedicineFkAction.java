@@ -131,7 +131,6 @@ public class MedicineFkAction extends ActionSupport {
         String cvsText = "";
         int i = 0;
         while ("".equals(medicineFk.getZdyl())) {
-            System.out.println(++i);
             if(Integer.parseInt(medicineFk.getAmt())<=0){
                 break;
             }

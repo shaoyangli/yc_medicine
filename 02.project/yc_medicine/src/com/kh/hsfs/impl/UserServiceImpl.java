@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * ·µ»Ø1±íÊ¾¸ÃµÇÂ¼IdÒÑ¾­Ê¹ÓÃÁË
+     * è¿”å›1è¡¨ç¤ºè¯¥ç™»å½•Idå·²ç»ä½¿ç”¨äº†
      */
     public int checkLoginID(String loginID) {
         String sql = "select count(1) from hsfs_user_info where user_loginid = '"
@@ -53,13 +53,13 @@ public class UserServiceImpl implements UserService {
     public int saveUserRole(HsfsUserRole userRole) {
         String roleName = userRole.getRoleName();
         String sql = "";
-        //ĞŞ¸Ä
+        //ä¿®æ”¹
         if (userRole.getRoleCode() > 0) {
             sql = "select count(1) from hsfs_user_role where role_name = '"
                     + roleName + "' and role_code<>" + userRole.getRoleCode();
 
         } else {
-            //ĞÂÔö
+            //æ–°å¢
             sql = "select count(1) from hsfs_user_role where role_name = '"
                     + roleName + "'";
         }
@@ -98,7 +98,7 @@ public class UserServiceImpl implements UserService {
         }
         String sql = "select count(1) from hsfs_user_role_power where role_id = "
                 + roleId;
-        int count = bdi.getCounts(sql);// ²éÑ¯ÊÇ·ñÒÑ¾­´æÔÚ½ÇÉ«µÄÈ¨ÏŞĞÅÏ¢
+        int count = bdi.getCounts(sql);// æŸ¥è¯¢æ˜¯å¦å·²ç»å­˜åœ¨è§’è‰²çš„æƒé™ä¿¡æ¯
         if (count > 0) {
             int id = bdi
                     .getCounts("select id from hsfs_user_role_power where role_id = "
@@ -123,7 +123,7 @@ public class UserServiceImpl implements UserService {
         return powerIds;
     }
 
-    // ¸ù¾İÒ»¸ösql·µ»ØÖ÷¼ü
+    // æ ¹æ®ä¸€ä¸ªsqlè¿”å›ä¸»é”®
     private int findmainId(String sql) {
         int id = -1;
         List list = bdi.getByJdbcSQL2(sql);
@@ -133,7 +133,7 @@ public class UserServiceImpl implements UserService {
         return id;
     }
 
-    // ÓÃ»§µÇÂ¼
+    // ç”¨æˆ·ç™»å½•
     public int checkLogin(String logInname, String loginPass, String year) {
         String sql = "select count(1) from hsfs_user_info where user_loginid = '"
                 + logInname + "' and user_pwd = '" + loginPass + "' and is_stop = 0";
@@ -142,27 +142,27 @@ public class UserServiceImpl implements UserService {
         try {
             result = bdi.getCounts(sql);
         } catch (Exception e) {
-            System.out.println("===========Òì³£:result"+result);
+            System.out.println("===========å¼‚å¸¸:result"+result);
             e.printStackTrace();
         }
-        if (result > 0) {// µÇÂ¼³É¹¦
-            System.out.println("½øÈë");
+        if (result > 0) {// ç™»å½•æˆåŠŸ
+            System.out.println("è¿›å…¥");
             int id = findmainId("select user_code from hsfs_user_info where user_loginid = '"
-                    + logInname + "' and user_pwd = '" + loginPass + "'");// µ±Ç°µÇÂ¼ÓÃ»§µÄÖ÷¼ü
+                    + logInname + "' and user_pwd = '" + loginPass + "'");// å½“å‰ç™»å½•ç”¨æˆ·çš„ä¸»é”®
             try {
 //				List<HsfsUserPower> userPowers = new ArrayList<HsfsUserPower>();
                 HsfsUserInfo user = (HsfsUserInfo) bdi.getInt(
-                        HsfsUserInfo.class, id);// µÃµ½ÓÃ»§¶ÔÏó
-//				String orgCode = user.getOrgCode();// ¹ÜÏ½»ú¹¹±àÂë
-//				int roleId = user.getPowerRole();// ËùÊô½ÇÉ«id
+                        HsfsUserInfo.class, id);// å¾—åˆ°ç”¨æˆ·å¯¹è±¡
+//				String orgCode = user.getOrgCode();// ç®¡è¾–æœºæ„ç¼–ç 
+//				int roleId = user.getPowerRole();// æ‰€å±è§’è‰²id
 //				HsfsOrgBaseInfo org = (HsfsOrgBaseInfo) bdi.getObject(
-//						HsfsOrgBaseInfo.class, orgCode);// µÃµ½ÓÃ»§¹ÜÏ½µÄ»ú¹¹
+//						HsfsOrgBaseInfo.class, orgCode);// å¾—åˆ°ç”¨æˆ·ç®¡è¾–çš„æœºæ„
                 // HsfsUserRole userRole =
-                // (HsfsUserRole)bdi.getInt(HsfsUserRole.class, roleId);//µÃµ½ÓÃ»§½ÇÉ«
-                // ÏÂÒ»²½´Ó½ÇÉ«¹ØÏµ±íÖĞµÃµ½½ÇÉ«µÄÈ¨ÏŞ
+                // (HsfsUserRole)bdi.getInt(HsfsUserRole.class, roleId);//å¾—åˆ°ç”¨æˆ·è§’è‰²
+                // ä¸‹ä¸€æ­¥ä»è§’è‰²å…³ç³»è¡¨ä¸­å¾—åˆ°è§’è‰²çš„æƒé™
 //				String sql1 = "select power_id from hsfs_user_role_power where role_id = "
 //						+ roleId;
-//				String power_ids = findId(sql1);// µÃµ½È¨ÏŞid
+//				String power_ids = findId(sql1);// å¾—åˆ°æƒé™id
 //				if (!power_ids.equals("0") && !power_ids.equals("")) {
 //
 //					String hql = "from HsfsUserPower p where p.powerId in ("
@@ -176,39 +176,39 @@ public class UserServiceImpl implements UserService {
                 ///session.setAttribute("userPowers", userPowers);
                 session.setAttribute("year", year);
 //				String sqlp = "select PERCAPITAL from hsfs_param_info where buryear = '" + year + "' and rownum = 1 ";
-//				List list = bdi.getByJdbcSQL2(sqlp);//²éÑ¯³öµ±ÄêµÄ²¹Öú±ê×¼
+//				List list = bdi.getByJdbcSQL2(sqlp);//æŸ¥è¯¢å‡ºå½“å¹´çš„è¡¥åŠ©æ ‡å‡†
 //				if(list.size() > 0) {
 //					String perMoney = (String)list.get(0);
-//					session.setAttribute("perMoney", Float.parseFloat(perMoney));//²¹Öú±ê×¼ °´ÈËÍ·²¹Öú
+//					session.setAttribute("perMoney", Float.parseFloat(perMoney));//è¡¥åŠ©æ ‡å‡† æŒ‰äººå¤´è¡¥åŠ©
 //					//System.out.println(Float.parseFloat(perMoney));
 //				}
             } catch (Exception e) {
-                System.out.println("Òì³£");
+                System.out.println("å¼‚å¸¸");
                 e.printStackTrace();
             }
             return 0;
         } else {
-            return 1;// µÇÂ¼Ê§°Ü
+            return 1;// ç™»å½•å¤±è´¥
         }
 
     }
 
-    // ÓÃ»§µÇÂ¼
+    // ç”¨æˆ·ç™»å½•
     public int checkLoginx(String pda_sn, String year) {
         String sql = "select count(1) from hsfs_user_info where pda_sn = '"
                 + pda_sn + "' and is_stop = 0";
         int result = bdi.getCounts(sql);
-        if (result > 0) {// µÇÂ¼³É¹¦
+        if (result > 0) {// ç™»å½•æˆåŠŸ
             int id = findmainId("select user_code from hsfs_user_info where pda_sn = '"
-                    + pda_sn + "'  and rownum = 1");// µ±Ç°µÇÂ¼ÓÃ»§µÄÖ÷¼ü
+                    + pda_sn + "'  and rownum = 1");// å½“å‰ç™»å½•ç”¨æˆ·çš„ä¸»é”®
             try {
                 List<HsfsUserPower> userPowers = new ArrayList<HsfsUserPower>();
                 HsfsUserInfo user = (HsfsUserInfo) bdi.getInt(
-                        HsfsUserInfo.class, id);// µÃµ½ÓÃ»§¶ÔÏó
-                String orgCode = user.getOrgCode();// ¹ÜÏ½»ú¹¹±àÂë
-                int roleId = user.getPowerRole();// ËùÊô½ÇÉ«id
+                        HsfsUserInfo.class, id);// å¾—åˆ°ç”¨æˆ·å¯¹è±¡
+                String orgCode = user.getOrgCode();// ç®¡è¾–æœºæ„ç¼–ç 
+                int roleId = user.getPowerRole();// æ‰€å±è§’è‰²id
                 HsfsOrgBaseInfo org = (HsfsOrgBaseInfo) bdi.getObject(
-                        HsfsOrgBaseInfo.class, orgCode);// µÃµ½ÓÃ»§¹ÜÏ½µÄ»ú¹¹
+                        HsfsOrgBaseInfo.class, orgCode);// å¾—åˆ°ç”¨æˆ·ç®¡è¾–çš„æœºæ„
                 HttpSession session = ServletActionContext.getRequest()
                         .getSession();
                 session.setAttribute("org", org);
@@ -216,32 +216,32 @@ public class UserServiceImpl implements UserService {
                 ///session.setAttribute("userPowers", userPowers);
                 session.setAttribute("year", year);
                 String sqlp = "select PERCAPITAL from hsfs_param_info where buryear = '" + year + "' and rownum = 1 ";
-                List list = bdi.getByJdbcSQL2(sqlp);//²éÑ¯³öµ±ÄêµÄ²¹Öú±ê×¼
+                List list = bdi.getByJdbcSQL2(sqlp);//æŸ¥è¯¢å‡ºå½“å¹´çš„è¡¥åŠ©æ ‡å‡†
                 if (list.size() > 0) {
                     String perMoney = (String) list.get(0);
-                    session.setAttribute("perMoney", Float.parseFloat(perMoney));//²¹Öú±ê×¼ °´ÈËÍ·²¹Öú
+                    session.setAttribute("perMoney", Float.parseFloat(perMoney));//è¡¥åŠ©æ ‡å‡† æŒ‰äººå¤´è¡¥åŠ©
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
             return 0;
         } else {
-            return 1;// µÇÂ¼Ê§°Ü
+            return 1;// ç™»å½•å¤±è´¥
         }
 
     }
 
     /*
-     * ¼ÓÔØ×ó²Ëµ¥
+     * åŠ è½½å·¦èœå•
      */
     public void checkUserPowers() {
         HttpSession session = ServletActionContext.getRequest().getSession();
         HsfsUserInfo user = (HsfsUserInfo) session.getAttribute("user");
         List<HsfsUserPower> userPowers = new ArrayList<HsfsUserPower>();
-        int roleId = user.getPowerRole();// ËùÊô½ÇÉ«id
+        int roleId = user.getPowerRole();// æ‰€å±è§’è‰²id
         String sql1 = "select power_id from hsfs_user_role_power where role_id = "
                 + roleId;
-        String power_ids = findId(sql1);// µÃµ½È¨ÏŞid
+        String power_ids = findId(sql1);// å¾—åˆ°æƒé™id
         System.out.println("power_ids======="+power_ids);
         if (!power_ids.equals("0") && !power_ids.equals("")) {
             System.out.println("chaxunchenggong power");
@@ -271,7 +271,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * É¾³ıÓÃ»§
+     * åˆ é™¤ç”¨æˆ·
      */
     public int removeUser(int id) {
 
@@ -287,14 +287,14 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * É¾³ıÈ¨ÏŞ
+     * åˆ é™¤æƒé™
      */
 
     public int removePower(int pId) {
         HsfsUserPower power = (HsfsUserPower) findModel(HsfsUserPower.class,
                 pId);
         int fahterId = power.getFatherId();
-        // É¾³ı¶ş¼¶²Ëµ¥
+        // åˆ é™¤äºŒçº§èœå•
         if (fahterId > 0) {
             try {
                 bdi.remove(power);
@@ -304,16 +304,16 @@ public class UserServiceImpl implements UserService {
                 return 1;
             }
         }
-        // É¾³ıÒ»¼¶²Ëµ¥
+        // åˆ é™¤ä¸€çº§èœå•
         else {
             try {
                 String hql = "from HsfsUserPower p where p.fatherId = " + pId;
                 List<HsfsUserPower> powers = bdi.queryList(hql);
-                // ÏÈÉ¾³ı×Ó²Ëµ¥
+                // å…ˆåˆ é™¤å­èœå•
                 for (HsfsUserPower p : powers) {
                     bdi.remove(p);
                 }
-                // ×îºóÉ¾³ıÒ»¼¶²Ëµ¥
+                // æœ€ååˆ é™¤ä¸€çº§èœå•
                 bdi.remove(power);
                 return 0;
             } catch (Exception e) {
@@ -354,7 +354,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * É¾³ı½ÇÉ«Ö®Ç°ÒªÅĞ¶Ï½ÇÉ«ÊÇ·ñÊ¹ÓÃ,É¾³ı½ÇÉ«µÄÊ±ºòÒªÁ¬¹ØÏµ±íÖĞµÄ¼ÇÂ¼Ò²ÒªÉ¾³ı
+     * åˆ é™¤è§’è‰²ä¹‹å‰è¦åˆ¤æ–­è§’è‰²æ˜¯å¦ä½¿ç”¨,åˆ é™¤è§’è‰²çš„æ—¶å€™è¦è¿å…³ç³»è¡¨ä¸­çš„è®°å½•ä¹Ÿè¦åˆ é™¤
      */
     public int removeRole(int id) {
         String sql = "select count(1) from hsfs_user_info where power_role = "
@@ -384,7 +384,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public PageUtil findBySqlPage(int currPage, int rows, String sql) {
-        // Ä¬ÈÏÏÔÊ¾µÚÒ»Ò³
+        // é»˜è®¤æ˜¾ç¤ºç¬¬ä¸€é¡µ
         if (currPage == 0) {
             currPage = 1;
         }

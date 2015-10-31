@@ -2,9 +2,12 @@ package com.kh.hsfs.action;
 
 import com.kh.hsfs.dao.HospitalInfoDao;
 import com.kh.hsfs.model.HospitalInfo;
+import com.kh.hsfs.model.HsfsUserInfo;
 import com.kh.util.PageUtil;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -31,6 +34,10 @@ public class HospitalInfoAction extends ActionSupport {
      */
     public String saveHosp() throws Exception {
         try {
+            HttpSession session = ServletActionContext.getRequest()
+                    .getSession();
+            HsfsUserInfo userinfo = (HsfsUserInfo)session.getAttribute("user");
+            hobi.setOperator(Integer.toString(userinfo.getUserCode()));
             isSuccess = hospitalInfoDao.saveHosp(hobi);
         } catch (Exception e) {
             e.printStackTrace();
@@ -40,23 +47,42 @@ public class HospitalInfoAction extends ActionSupport {
     }
 
     /**
-     * 查询所有用户角色
+     * 查询所有住院记录
      */
     public String findAllHosp() throws Exception {
-        String sql = "select * from hospitalinfo order by id";
+        HttpSession session = ServletActionContext.getRequest()
+                .getSession();
+        HsfsUserInfo userinfo = (HsfsUserInfo)session.getAttribute("user");
+        String sql ="";
+        //管理员查询全部
+        if( userinfo.getPowerRole() == 1 ){
+            sql = "select * from hospitalinfo order by id";
+        }else {     //非管理员仅仅查询自己保存的记录
+            sql = "select * from hospitalinfo h where h.operator = " + userinfo.getUserCode()  + " order by id";
+        }
+
         list = hospitalInfoDao.getByJdbcSQL(sql);
         return "findAllHosp";
     }
 
     /**
-     * 查询用户列表
+     * 条件查询住院记录
      */
     public String findHospList() throws Exception {
+        HttpSession session = ServletActionContext.getRequest()
+                .getSession();
+        HsfsUserInfo userinfo = (HsfsUserInfo)session.getAttribute("user");
         String sql = "select * from hospitalinfo where 1=1";
         if (!"".equals(name)) {
             sql += " and name like '%" + name + "%'";
         }
-        sql += " order by id";
+        //管理员查询全部
+        if( userinfo.getPowerRole() == 1 ){
+            sql += " order by id";
+        } else {
+            sql += " and  operator = " + userinfo.getUserCode()  + " order by id";
+        }
+
         int row = 10;// 每页记录数
         if (currPage > totalPages) {
             currPage = totalPages;
@@ -71,7 +97,7 @@ public class HospitalInfoAction extends ActionSupport {
     }
 
     /**
-     * 删除用户
+     * 删除住院记录
      */
     public String removeHosp() throws Exception {
         isSuccess = hospitalInfoDao.removeById(id);

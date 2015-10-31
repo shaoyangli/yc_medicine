@@ -131,7 +131,6 @@ public class MedicineVpaAction extends ActionSupport {
         String cvsText = "";
         int i = 0;
         while ("".equals(medicineVpa.getZdyl())) {
-            System.out.println(++i);
             if(Integer.parseInt(medicineVpa.getAmt())<=0){
                 break;
             }

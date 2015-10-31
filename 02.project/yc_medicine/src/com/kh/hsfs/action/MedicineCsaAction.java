@@ -131,7 +131,6 @@ public class MedicineCsaAction extends ActionSupport {
         String cvsText = "";
         int i = 0;
         while ("".equals(medicineCsa.getZdyl())) {
-            System.out.println(++i);
             if(Integer.parseInt(medicineCsa.getAmt())<=0){
                 break;
             }

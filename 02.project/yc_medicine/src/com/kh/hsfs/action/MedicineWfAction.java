@@ -131,7 +131,6 @@ public class MedicineWfAction extends ActionSupport {
         String cvsText = "";
         int i = 0;
         while ("".equals(medicineWf.getZdyl())) {
-            System.out.println(++i);
             if(Integer.parseInt(medicineWf.getDose())<=0){
                 break;
             }

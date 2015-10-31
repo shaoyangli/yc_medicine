@@ -17,6 +17,7 @@ public class HospitalInfo implements java.io.Serializable {
     private String weight;
     private String surface_area;
     private String operation_time;
+    private String operator;
 
 
     public int getId() {
@@ -89,5 +90,13 @@ public class HospitalInfo implements java.io.Serializable {
 
     public void setOperation_time(String operation_time) {
         this.operation_time = operation_time;
+    }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 }
